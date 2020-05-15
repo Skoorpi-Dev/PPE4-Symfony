@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resider{% endblock %}
+
+{% block body %}
+    <h1>Resider</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resider.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('resider_index') }}">back to list</a>
+
+    <a href="{{ path('resider_edit', {'id': resider.id}) }}">edit</a>
+
+    {{ include('resider/_delete_form.html.twig') }}
+{% endblock %}

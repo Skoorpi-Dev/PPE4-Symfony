@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Presenter{% endblock %}
+
+{% block body %}
+    <h1>Edit Presenter</h1>
+
+    {{ include('presenter/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('presenter_index') }}">back to list</a>
+
+    {{ include('presenter/_delete_form.html.twig') }}
+{% endblock %}

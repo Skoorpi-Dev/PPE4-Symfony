@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Magasin index{% endblock %}
+
+{% block body %}
+    <h1>Magasin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>HoraireOuverture</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Nom</th>
+                <th>Telephone</th>
+                <th>Courriel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for magasin in magasins %}
+            <tr>
+                <td>{{ magasin.id }}</td>
+                <td>{{ magasin.horaireOuverture }}</td>
+                <td>{{ magasin.longitude }}</td>
+                <td>{{ magasin.latitude }}</td>
+                <td>{{ magasin.nom }}</td>
+                <td>{{ magasin.telephone }}</td>
+                <td>{{ magasin.courriel }}</td>
+                <td>
+                    <a href="{{ path('magasin_show', {'id': magasin.id}) }}">show</a>
+                    <a href="{{ path('magasin_edit', {'id': magasin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('magasin_new') }}">Create new</a>
+{% endblock %}

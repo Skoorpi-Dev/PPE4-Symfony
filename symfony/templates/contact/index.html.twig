@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2>Mon Formulaire de contact</h2>
+
+    {# On rajoute le novalidate pour enlever la validation html5 et permettre de voir la validation Symfony #}
+    <form action="{{ path('contact') }}" method="post" novalidate="novalidate">
+
+        {# Si j'ai une erreur de validation sur ce champ #}
+        {% if form.subject.vars['errors'] |length > 0 %}
+            <p style="color:red">
+                {# J'affiche une liste à puce des erreurs #}
+                {{ form_errors(form.subject) }}
+            </p>
+        {% endif %}
+        <p>
+            {# la fonction form_label génère la balise <label> #}
+            {{ form_label(form.subject, "Sujet * :", {}) }}
+            {# la fonction form_label génère la balise <select> car c'est un ChoiceType #}
+            {{ form_widget(form.subject, {}) }}
+        </p>
+
+        {# Si j'ai une erreur de validation sur ce champ #}
+        {% if form.name.vars['errors'] |length > 0 %}
+            <p style="color:red">
+                {# J'affiche une liste à puce des erreurs #}
+                {{ form_errors(form.name) }}
+            </p>
+        {% endif %}
+        <p>
+            {# la fonction form_label génère la balise <label> #}
+            {{ form_label(form.name, "Nom de famille * :", {}) }}
+            {# la fonction form_label génère la balise <input type="text"> car c'est un TextType #}
+            {{ form_widget(form.name, {}) }}
+        </p>
+
+        {# Si j'ai une erreur de validation sur ce champ #}
+        {% if form.email.vars['errors'] |length > 0 %}
+            <p style="color:red">
+                {# J'affiche une liste à puce des erreurs #}
+                {{ form_errors(form.email) }}
+            </p>
+        {% endif %}
+        <p>
+            {# la fonction form_label génère la balise <label> #}
+            {{ form_label(form.email, "Email * :", {}) }}
+            {# la fonction form_label génère la balise <input type="email"> car c'est un EmailType #}
+            {{ form_widget(form.email, {}) }}
+        </p>
+
+        {# Si j'ai une erreur de validation sur ce champ #}
+        {% if form.message.vars['errors'] |length > 0 %}
+            <p style="color:red">
+                {# J'affiche une liste à puce des erreurs #}
+                {{ form_errors(form.message) }}
+            </p>
+        {% endif %}
+        <p>
+            {# la fonction form_label génère la balise <label> #}
+            {{ form_label(form.message, "Message * :", {}) }}
+            {# la fonction form_label génère la balise <textarea> car c'est un TextareaType #}
+            {{ form_widget(form.message, {}) }}
+        </p>
+
+
+
+
+        {# Génère l'input secret pour la sécurité de la faille CSRF, qui s'appelle _token #}
+        {# Ne pas s'en préoccuper, mais il faut toujours mettre le form_rest(), toujours #}
+        {{ form_rest(form) }}
+
+        <p>
+            <input type="submit" value="Envoyer le formulaire" />
+        </p>
+    </form>
+
+{% endblock %}

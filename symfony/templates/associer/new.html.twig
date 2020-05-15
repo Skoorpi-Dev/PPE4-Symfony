@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Associer{% endblock %}
+
+{% block body %}
+    <h1>Create new Associer</h1>
+
+    {{ include('associer/_form.html.twig') }}
+
+    <a href="{{ path('associer_index') }}">back to list</a>
+{% endblock %}

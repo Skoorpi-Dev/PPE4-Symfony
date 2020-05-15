@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Associer{% endblock %}
+
+{% block body %}
+    <h1>Edit Associer</h1>
+
+    {{ include('associer/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('associer_index') }}">back to list</a>
+
+    {{ include('associer/_delete_form.html.twig') }}
+{% endblock %}

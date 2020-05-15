@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneReservation index{% endblock %}
+
+{% block body %}
+    <h1>LigneReservation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantite</th>
+                <th>PrixUnitaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_reservation in ligne_reservations %}
+            <tr>
+                <td>{{ ligne_reservation.id }}</td>
+                <td>{{ ligne_reservation.quantite }}</td>
+                <td>{{ ligne_reservation.prixUnitaire }}</td>
+                <td>
+                    <a href="{{ path('ligne_reservation_show', {'id': ligne_reservation.id}) }}">show</a>
+                    <a href="{{ path('ligne_reservation_edit', {'id': ligne_reservation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ligne_reservation_new') }}">Create new</a>
+{% endblock %}

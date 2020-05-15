@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LigneReservation{% endblock %}
+
+{% block body %}
+    <h1>Edit LigneReservation</h1>
+
+    {{ include('ligne_reservation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('ligne_reservation_index') }}">back to list</a>
+
+    {{ include('ligne_reservation/_delete_form.html.twig') }}
+{% endblock %}

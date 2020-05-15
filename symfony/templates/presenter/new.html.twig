@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Presenter{% endblock %}
+
+{% block body %}
+    <h1>Create new Presenter</h1>
+
+    {{ include('presenter/_form.html.twig') }}
+
+    <a href="{{ path('presenter_index') }}">back to list</a>
+{% endblock %}

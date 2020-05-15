@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PPE4{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container">
+
+        <h3 class="h3">Les produits de la semaine</h3>
+
+        <div class="row">
+            {% for p in produit %}
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid6">
+                    <div class="product-image6">
+                        <a href="#">
+                            <img class="pic-1" src="https://cdn.shopify.com/s/files/1/2692/4812/products/hoodie-naoki-noir-m-sweatshirt-akin_240_510x.jpg?v=1572412856">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">{{ p.libelle }}</a></h3>
+                        <div class="price">{{ p.prixht }}
+                            <span>40</span>
+                        </div>
+                    </div>
+                    <ul class="social">
+                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="{{ path('produit_detail', {'id': p.id}) }}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Associer index{% endblock %}
+
+{% block body %}
+    <h1>Associer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for associer in associers %}
+            <tr>
+                <td>{{ associer.id }}</td>
+                <td>
+                    <a href="{{ path('associer_show', {'id': associer.id}) }}">show</a>
+                    <a href="{{ path('associer_edit', {'id': associer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('associer_new') }}">Create new</a>
+{% endblock %}

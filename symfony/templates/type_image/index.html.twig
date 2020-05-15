@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeImage index{% endblock %}
+
+{% block body %}
+    <h1>TypeImage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_image in type_images %}
+            <tr>
+                <td>{{ type_image.id }}</td>
+                <td>{{ type_image.libelle }}</td>
+                <td>
+                    <a href="{{ path('type_image_show', {'id': type_image.id}) }}">show</a>
+                    <a href="{{ path('type_image_edit', {'id': type_image.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_image_new') }}">Create new</a>
+{% endblock %}

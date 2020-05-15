@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presenter index{% endblock %}
+
+{% block body %}
+    <h1>Presenter index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for presenter in presenters %}
+            <tr>
+                <td>{{ presenter.id }}</td>
+                <td>
+                    <a href="{{ path('presenter_show', {'id': presenter.id}) }}">show</a>
+                    <a href="{{ path('presenter_edit', {'id': presenter.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('presenter_new') }}">Create new</a>
+{% endblock %}

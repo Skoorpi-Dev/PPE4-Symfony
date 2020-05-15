@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Resider{% endblock %}
+
+{% block body %}
+    <h1>Create new Resider</h1>
+
+    {{ include('resider/_form.html.twig') }}
+
+    <a href="{{ path('resider_index') }}">back to list</a>
+{% endblock %}

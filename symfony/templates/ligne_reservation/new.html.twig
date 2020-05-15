@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LigneReservation{% endblock %}
+
+{% block body %}
+    <h1>Create new LigneReservation</h1>
+
+    {{ include('ligne_reservation/_form.html.twig') }}
+
+    <a href="{{ path('ligne_reservation_index') }}">back to list</a>
+{% endblock %}

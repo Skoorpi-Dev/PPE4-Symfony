@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Resider{% endblock %}
+
+{% block body %}
+    <h1>Edit Resider</h1>
+
+    {{ include('resider/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('resider_index') }}">back to list</a>
+
+    {{ include('resider/_delete_form.html.twig') }}
+{% endblock %}
