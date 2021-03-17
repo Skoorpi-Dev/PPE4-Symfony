@@ -28,6 +28,7 @@ Vous pouvez exécuter le projet avec un éditeur, mais il doit avoir la possibil
 - [PHPSTORM](https://www.jetbrains.com/fr-fr/phpstorm/) - IDE
 - [PHP](https://www.php.net/) - Langage de programmation
 - [Bootstrap](https://www.w3schools.com/) - Framework
+- [Docker](https://www.docker.com/)
 
 ## Autheurs
 
